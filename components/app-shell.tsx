@@ -1,13 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Sidebar } from '@/components/sidebar';
 import { MobileNav } from '@/components/mobile-nav';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 
+const PUBLIC_ROUTES = ['/terminos', '/privacidad'];
+
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const isPublic = PUBLIC_ROUTES.includes(pathname);
+
+  if (isPublic) {
+    return (
+      <>
+        <main className="min-h-screen">{children}</main>
+        <Toaster position="top-right" richColors />
+      </>
+    );
+  }
 
   return (
     <div className="flex min-h-screen">

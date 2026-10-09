@@ -52,13 +52,17 @@ export function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="border-t border-border/60 p-4">
+      <div className="space-y-3 border-t border-border/60 p-4">
         <div className="rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 p-4">
           <p className="text-sm font-semibold">Plan Creator</p>
           <p className="mt-1 text-xs text-muted-foreground">Subidas ilimitadas simuladas</p>
           <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-secondary">
             <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-primary to-accent" />
           </div>
+        </div>
+        <div className="flex gap-3 text-xs text-muted-foreground">
+          <Link href="/terminos" className="transition-colors hover:text-foreground">Términos</Link>
+          <Link href="/privacidad" className="transition-colors hover:text-foreground">Privacidad</Link>
         </div>
       </div>
     </aside>
